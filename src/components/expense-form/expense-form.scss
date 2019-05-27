@@ -1,0 +1,35 @@
+@import "../../site-variables";
+
+$label-name-width: 80px;
+$label-margin: 20px;
+
+.expense-form {
+  margin: $app-top-margin;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+
+  .field-name {
+    min-width: $label-name-width;
+    text-align: right;
+    margin-right: $label-margin;
+  }
+
+  input.field-input, .datepicker-wrapper {
+    width: 100%;
+  }
+
+  .react-datepicker-wrapper, .react-datepicker__input-container {
+    display: block;
+  }
+
+  .react-datepicker__input-container {
+    input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
