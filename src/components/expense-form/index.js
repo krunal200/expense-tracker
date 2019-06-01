@@ -44,8 +44,8 @@ class ExpenseForm extends PureComponent {
         }
     };
 
-    handleTagSelection = () => {
-
+    handleTagSelection = (selectedTags) => {
+        this.setState({ selectedTags })
     };
 
     renderInputField ({ label, stateProp, type = 'text', focus = false }) {
@@ -98,15 +98,6 @@ class ExpenseForm extends PureComponent {
         return this.renderInputField({ label: 'Description', stateProp: INPUT_ID.DESCRIPTION })
     }
 
-    renderSubmitBtn () {
-        return (
-            <label className='field'>
-                <div className='field-name'> </div>
-                <input type='submit' value='Save' />
-            </label>
-        );
-    }
-
     renderTagSelector () {
         return (
             <label className='field'>
@@ -115,8 +106,21 @@ class ExpenseForm extends PureComponent {
                     value={this.state.selectedTags}
                     options={TAG_LIST}
                     onChange={this.handleTagSelection}
+                    className='react-select-container'
+                    classNamePrefix="react-select"
+                    closeMenuOnSelect={false}
+                    isMulti
                 />
             </label>
+        );
+    }
+
+    renderSubmitBtn () {
+        return (
+            <div className='field'>
+                <div className='field-name'> </div>
+                <input type='submit' value='Save' />
+            </div>
         );
     }
 
