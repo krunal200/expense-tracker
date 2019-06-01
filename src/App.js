@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpenseForm from './components/expense-form/index';
+import ExpenseForm from './components/expense-form/expense-form';
 import './App.scss';
 
 function App() {
