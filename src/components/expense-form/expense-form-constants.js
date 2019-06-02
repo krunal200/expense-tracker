@@ -21,3 +21,8 @@ export const TAG_LIST = [{
 
 export const DEFAULT_SELECTED_TAGS = TAG_LIST
     .filter( tag => tag.value === 'HDFC_CREDIT_CARD');
+
+export const FORM_TYPE = {
+  EXPENSE: 'expense',
+  INCOME: 'income'
+};
