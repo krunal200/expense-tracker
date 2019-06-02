@@ -12,11 +12,17 @@ export const TAG_LIST = [{
     value: 'HDFC_CREDIT_CARD',
     label: 'HDFC Credit Card'
 }, {
+    value: 'HDFC_SAVING_ACC',
+    label: 'HDFC Saving Account'
+}, {
+    value: 'CASH',
+    label: 'Cash'
+}, {
     value: 'ICICI_CREDIT_CARD',
     label: 'ICICI Credit Card'
 }, {
-    value: 'HDFC_SAVING_ACC',
-    label: 'HDFC Saving Account'
+    value: 'ICICI_SAVING_ACC',
+    label: 'ICICI Saving Account'
 }];
 
 export const DEFAULT_SELECTED_TAGS = TAG_LIST
