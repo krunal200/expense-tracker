@@ -1,11 +1,11 @@
 import React, { PureComponent }from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker/es';
 import "react-datepicker/dist/react-datepicker.css";
-import './expense-form.scss';
-import { INPUT_ID, INPUT_VALIDATION_REGEX, TAG_LIST, DEFAULT_SELECTED_TAGS, FORM_TYPE } from './expense-form-constants';
+import './form.scss';
+import { INPUT_ID, INPUT_VALIDATION_REGEX, TAG_LIST, DEFAULT_SELECTED_TAGS, FORM_TYPE } from './constants';
 import Select from 'react-select';
 
-class ExpenseForm extends PureComponent {
+class AddExpenseForm extends PureComponent {
     constructor (props) {
         super(props);
         this.state = {
@@ -177,4 +177,4 @@ class ExpenseForm extends PureComponent {
     }
 }
 
-export default ExpenseForm;
+export default AddExpenseForm;

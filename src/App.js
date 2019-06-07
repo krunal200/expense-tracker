@@ -1,11 +1,11 @@
 import React from 'react';
-import ExpenseForm from './components/expense-form/expense-form';
+import AddExpenseForm from './components/add-expense/form/form';
 import './App.scss';
 
 function App() {
   return (
       <div className="app">
-        <ExpenseForm />
+        <AddExpenseForm />
       </div>
   );
 }
