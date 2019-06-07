@@ -5,7 +5,7 @@ import './form.scss';
 import { INPUT_ID, INPUT_VALIDATION_REGEX, TAG_LIST, DEFAULT_SELECTED_TAGS, FORM_TYPE } from './constants';
 import Select from 'react-select';
 
-class AddExpenseForm extends PureComponent {
+class ExpenseAddForm extends PureComponent {
     constructor (props) {
         super(props);
         this.state = {
@@ -177,4 +177,4 @@ class AddExpenseForm extends PureComponent {
     }
 }
 
-export default AddExpenseForm;
+export default ExpenseAddForm;
