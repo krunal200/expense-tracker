@@ -1,12 +1,15 @@
 import React from 'react';
-import ExpenseAddForm from './components/expense/add/form';
+import AppRouter from './router'
 import './App.scss';
+import Auth from './screens/auth';
 
 function App() {
   return (
-      <div className="app">
-        <ExpenseAddForm />
-      </div>
+      <Auth>
+          <div className="app">
+              <AppRouter />
+          </div>
+      </Auth>
   );
 }
 

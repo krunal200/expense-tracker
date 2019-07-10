@@ -1,0 +1,5 @@
+export const LOGGIN_STATE = {
+  LOADING: 'LOADING',
+  LOGGED_IN: 'LOGGED_IN',
+  LOGGED_OUT: 'LOGGED_OUT'
+};
