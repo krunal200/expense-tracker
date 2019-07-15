@@ -1,16 +1,16 @@
 import React, {PureComponent} from 'react';
-import Loader from '../../components/loader';
+import Loader from '../../ui/loader';
 import './auth.scss';
 import { LOGGIN_STATE } from './constant';
-import AuthForm from '../../components/auth/form';
+import AuthForm from './form';
 
 class Auth extends PureComponent {
 
     state = {
-      loginState: LOGGIN_STATE.LOGGED_OUT
+      loginState: LOGGIN_STATE.LOGGED_OUT //LOGGIN_STATE.LOADING
     };
 
-    renderApp () {
+    renderChildren () {
         switch (this.state.loginState) {
             case LOGGIN_STATE.LOADING:
                 return <Loader className='auth-loader'/>;
@@ -28,7 +28,7 @@ class Auth extends PureComponent {
 
     render () {
         return <div className='auth-container'>
-            {this.renderApp()}
+            {this.renderChildren()}
         </div>;
     }
 }
