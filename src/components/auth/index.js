@@ -1,25 +1,26 @@
 import React, {PureComponent} from 'react';
 import Loader from '../../ui/loader';
 import './auth.scss';
-import { LOGGIN_STATE } from './constant';
-import AuthForm from './form';
+import { LOGIN_STATE } from '../../constants';
+import SSO from './sso';
+import { connect } from 'react-redux'
+import { registerAuthStateChange } from './duck';
 
 class Auth extends PureComponent {
-
-    state = {
-      loginState: LOGGIN_STATE.LOGGED_OUT //LOGGIN_STATE.LOADING
-    };
+    componentDidMount() {
+        this.props.registerAuthStateChange();
+    }
 
     renderChildren () {
-        switch (this.state.loginState) {
-            case LOGGIN_STATE.LOADING:
+        switch (this.props.appState) {
+            case LOGIN_STATE.LOADING:
                 return <Loader className='auth-loader'/>;
 
-            case LOGGIN_STATE.LOGGED_IN:
+            case LOGIN_STATE.LOGGED_IN:
                 return this.props.children;
 
-            case LOGGIN_STATE.LOGGED_OUT:
-                return <AuthForm/>;
+            case LOGIN_STATE.LOGGED_OUT:
+                return <SSO/>;
 
             default:
                 return  null;
@@ -27,10 +28,23 @@ class Auth extends PureComponent {
     }
 
     render () {
-        return <div className='auth-container'>
-            {this.renderChildren()}
-        </div>;
+        return (
+            <>
+                {this.renderChildren()}
+            </>
+        );
     }
 }
 
-export default Auth;
+function mapStateToProps(state) {
+    const { auth: { appState } } = state;
+    return {
+        appState
+    };
+}
+
+const mapDispatchToProps = {
+    registerAuthStateChange
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

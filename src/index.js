@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import * as firebase from 'firebase/app';
-import 'firebase/auth'; //decide if you need this
 import store from './store';
 import { FIREBASE_CONFIG } from './constants'
 

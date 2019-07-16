@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ExpenseAddForm from './components/expense/add/form'
+import ExpenseAddScreen from './screens/expense/add'
 
 export default function AppRouter () {
     return (
         <Router>
             <Switch>
-                <Route path='/' component={ExpenseAddForm} />
+                <Route path='/' component={ExpenseAddScreen} />
             </Switch>
         </Router>
     );
