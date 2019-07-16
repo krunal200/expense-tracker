@@ -2,10 +2,10 @@ import React  from 'react';
 import { connect } from 'react-redux';
 import { LOGIN_STATE } from '../../constants';
 
-function Header({ displayName, appState }) {
+function Header({ displayName, appState, email }) {
     switch (appState) {
         case LOGIN_STATE.LOGGED_IN:
-            return `Welcome ${displayName}`;
+            return `Welcome ${displayName} (${email})`;
 
         case LOGIN_STATE.LOGGED_OUT:
             return 'Please sing in';
@@ -16,10 +16,11 @@ function Header({ displayName, appState }) {
 }
 
 function mapStateToProps (state) {
-    const { auth: { displayName, appState } } = state;
+    const { auth: { displayName, appState, email } } = state;
     return {
         displayName,
-        appState
+        appState,
+        email
     }
 }
 
