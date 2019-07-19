@@ -6,8 +6,12 @@ import { FIREBASE_UI_CONFIG } from '../../constants';
 
 class SSO extends PureComponent {
     componentDidMount() {
-        const ui = new firebaseUi.auth.AuthUI(firebase.auth());
-        ui.start('#auth-form', FIREBASE_UI_CONFIG);
+        this.ui = new firebaseUi.auth.AuthUI(firebase.auth());
+        this.ui.start('#auth-form', FIREBASE_UI_CONFIG);
+    }
+
+    componentWillUnmount() {
+        this.ui && this.ui.delete();
     }
 
     render () {

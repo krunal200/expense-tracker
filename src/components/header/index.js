@@ -2,15 +2,16 @@ import React  from 'react';
 import { connect } from 'react-redux';
 import { LOGIN_STATE } from '../../constants';
 import './header.scss';
+import { logOut } from '../auth/duck';
 
-function Header({ displayName, appState, email }) {
+function Header({ displayName, appState, email, handleSignOutBtnClick }) {
     switch (appState) {
         case LOGIN_STATE.LOGGED_IN:
             return (
                 <div className='header'>
                     <h3>
                         {displayName}
-                        <a>Sign out</a>
+                        <a href='javascript:;' onClick={handleSignOutBtnClick}>Sign out</a>
                     </h3>
                     <p>({email})</p>
                 </div>
@@ -33,4 +34,8 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+    handleSignOutBtnClick: logOut
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

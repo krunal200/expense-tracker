@@ -1,20 +1,22 @@
 import firebase from 'firebase/app';
-import { setUserData, resetUserData } from './actions';
+import { setDataOnLogIn, resetDataOnLogOut, showAuthLoader } from './actions';
 
 export function registerAuthStateChange() {
     return dispatch => {
+        dispatch(showAuthLoader());
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                dispatch(setUserData(user));
+                dispatch(setDataOnLogIn(user));
                 return;
             }
-            dispatch(resetUserData());
+            dispatch(resetDataOnLogOut());
         });
     }
 }
 
-export function logout() {
+export function logOut() {
     return dispatch => {
-
+        dispatch(showAuthLoader());
+        firebase.auth().signOut().catch(console.error);
     }
 }

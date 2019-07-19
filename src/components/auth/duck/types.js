@@ -1,2 +1,3 @@
-export const SET_USER_DATA = 'SET_USER_DATA';
-export const RESET_USER_DATA = 'RESET_USER_DATA';
+export const SET_DATA_LOG_IN = 'SET_DATA_LOG_IN';
+export const RESET_DATA_ON_LOG_OUT = 'RESET_DATA_ON_LOG_OUT';
+export const SHOW_AUTH_LOADER = 'SHOW_AUTH_LOADER';
